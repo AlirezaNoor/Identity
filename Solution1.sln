@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "identity", "identity\identity.csproj", "{8125D13E-7C64-4A24-BEF1-CBCDA7DB0C3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "identity", "identity\identity.csproj", "{8125D13E-7C64-4A24-BEF1-CBCDA7DB0C3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersianTranslation", "D:\asp\identity\06_Identity3\Files\IdentitySample\PersianTranslation\PersianTranslation.csproj", "{39D9DB02-AB67-4C50-92CD-9AFCC5D28A46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8125D13E-7C64-4A24-BEF1-CBCDA7DB0C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8125D13E-7C64-4A24-BEF1-CBCDA7DB0C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8125D13E-7C64-4A24-BEF1-CBCDA7DB0C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D9DB02-AB67-4C50-92CD-9AFCC5D28A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D9DB02-AB67-4C50-92CD-9AFCC5D28A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D9DB02-AB67-4C50-92CD-9AFCC5D28A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D9DB02-AB67-4C50-92CD-9AFCC5D28A46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

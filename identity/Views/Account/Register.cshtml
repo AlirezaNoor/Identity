@@ -19,27 +19,30 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" asp-for="name"/>
-                      <label class="form-label" for="form3Example1c"asp-for="name"> </label>
-                      <span asp-validation-for="name"></span>
+                        <input class="form-control" asp-for="name"/>
+                        <span asp-validation-for="name"></span>
+                      <label class="form-label" asp-for="name"> </label>
+                      
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" asp-for="email"/>
-                      <label class="form-label" for="form3Example3c"asp-for="email"></label>
-                      <span asp-validation-for="email"></span>
+                        <input  class="form-control" asp-for="email"/>
+                        <span asp-validation-for="email"></span>
+                      <label class="form-label"asp-for="email"></label>
+                      
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control"asp-for="password" />
-                      <label class="form-label" for="form3Example4c"asp-for="password"></label>
-                      <span asp-validation-for="password"></span>
+                        <input   class="form-control"asp-for="password" />
+                        <span asp-validation-for="password"></span>
+                      <label class="form-label" asp-for="password"></label>
+                      
                     </div>
                   </div>
 
@@ -68,3 +71,7 @@
     </div>
   </div>
 </section>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

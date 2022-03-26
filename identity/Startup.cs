@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using identity._Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PersianTranslation.Identity;
 
 namespace identity
 {
@@ -29,8 +30,15 @@ namespace identity
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             var myconnection = Configuration.GetConnectionString("Ef");
             services.AddDbContext<MyContext>(x => x.UseSqlServer(myconnection));
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<MyContext>().AddDefaultTokenProviders();
+            services.AddIdentity<IdentityUser, IdentityRole>(x =>
+                {
+                    x.Password.RequiredUniqueChars = 0;
+                    x.User.RequireUniqueEmail=true;
+                    x.User.AllowedUserNameCharacters =
+                        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-";
+                })
+                .AddEntityFrameworkStores<MyContext>().AddDefaultTokenProviders()
+                .AddErrorDescriber<PersianIdentityErrorDescriber>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

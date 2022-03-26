@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+ @inject SignInManager<IdentityUser> signInManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,6 +19,26 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul  class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            @if (signInManager.IsSignedIn(User))
+                            {
+                                <form asp-action="Logout"asp-controller="Account" method="post">
+                                    <button type="submit" class="btn nav-link text-dark" asp-action="Logout" asp-controller="Account">خروج</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-action="Logout"asp-controller="Account" method="post">
+                                    <button type="submit" class="btn nav-link text-dark" asp-action="Login" asp-controller="Account">ورود</button>
+                                    <button type="submit" class="btn nav-link text-dark" asp-action="Register" asp-controller="Account"> ثبت نام</button>
+
+                                </form>
+                            }
+                        
+                        </li>
+
+                    </ul>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -46,8 +68,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js" ></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" ></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

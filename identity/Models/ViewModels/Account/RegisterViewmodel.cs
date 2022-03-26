@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace identity.Models.ViewModels.Account
 {
@@ -6,6 +7,7 @@ namespace identity.Models.ViewModels.Account
     {
         [Required] 
         [Display(Name = "اسم")]
+        [Remote("IsnameUSe", "Account")]
         public string name { get; set; }
         [Required]
         [Display(Name = "ایمیل")]
