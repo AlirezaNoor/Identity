@@ -1,0 +1,10 @@
+﻿@model identity.Models.ViewModels.Account.resetpas
+
+<form asp-action="Confirmpass" asp-controller="Account" method="post">
+    <input asp-for="token" type="hidden"/>
+    <input asp-for="email" type="hidden"/>
+
+    <input asp-for="pass"/>
+    <input type="submit"/>
+</form>
+

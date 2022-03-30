@@ -1,0 +1,11 @@
+﻿@model identity.Models.ViewModels.Account.Emial
+<form asp-action="ForgetPsdd" asp-controller="Account" method="post">
+    @if (ViewData["erro"]!=null)
+    {
+        <div class="alert alert-danger">@ViewBag.erro</div>
+    }
+    <input asp-for="name"/>
+    <input asp-for="email"/>
+
+    <input type="submit"/>
+</form>

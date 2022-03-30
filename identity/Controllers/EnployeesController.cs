@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using identity.Models;
 using identity._Context;
+using Microsoft.AspNetCore.Authorization;
 
 namespace identity.Controllers
 {
+    [Authorize]
     public class EnployeesController : Controller
     {
         private readonly MyContext _context;
@@ -18,7 +20,7 @@ namespace identity.Controllers
         {
             _context = context;
         }
-
+       
         // GET: Enployees
         public async Task<IActionResult> Index()
         {

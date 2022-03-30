@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using identity._Context;
+using identity.Models;
+using identity.Reposetory;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PersianTranslation.Identity;
@@ -26,11 +28,17 @@ namespace identity
 
         public void ConfigureServices(IServiceCollection services)
         {
-          
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            services.AddControllersWithViews();
             var myconnection = Configuration.GetConnectionString("Ef");
             services.AddDbContext<MyContext>(x => x.UseSqlServer(myconnection));
-            services.AddIdentity<IdentityUser, IdentityRole>(x =>
+            services.AddAuthentication().AddGoogle(
+                x =>{
+                    x.ClientId = "72574947272-0gihsr0uupplb2lriet5i989384bq5bk.apps.googleusercontent.com";
+                    x.ClientSecret = "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";
+                });
+
+        services.AddIdentity<IdentityUser, IdentityRole>(x =>
                 {
                     x.Password.RequiredUniqueChars = 0;
                     x.User.RequireUniqueEmail=true;
@@ -39,6 +47,7 @@ namespace identity
                 })
                 .AddEntityFrameworkStores<MyContext>().AddDefaultTokenProviders()
                 .AddErrorDescriber<PersianIdentityErrorDescriber>();
+            services.AddScoped<IMessageSender, MessageSender>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
