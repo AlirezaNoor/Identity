@@ -1,0 +1,26 @@
+﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>;
+
+
+<a asp-controller="MangeRole" asp-action="AddRole">AddRole</a>
+@if (!Model.Any())
+{
+    <h1>not find any roles</h1>
+}
+@foreach (var item in Model)
+{
+    <div class="card mt-2">
+        <div class="card-body">
+            Role Name:<b>@item.Name</b>
+        </div>
+        <div class="card-footer">
+            <form asp-controller="MangeRole" asp-action="DeleteRole" method="post" asp-route-id="@item.Id"> 
+                
+                <a class="btn btn-primary" asp-controller="MangeRole" asp-action="EditRole" asp-route-id="@item.Id">EditRole</a>
+                <button type="submit" class="btn btn-danger">DelrteRoles</button>
+            </form>
+
+        </div>
+    </div>
+}
+
+

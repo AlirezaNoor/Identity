@@ -1,0 +1,11 @@
+﻿@model identity.Models.ViewModels.Account.IdentityRoleViewModel;
+
+<form asp-controller="MangeRole" asp-action="AddRole" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label class="control-label">Name :</label>
+        <input class="form-control" asp-for="Name" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
