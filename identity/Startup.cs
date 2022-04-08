@@ -48,6 +48,10 @@ namespace identity
                 .AddEntityFrameworkStores<MyContext>().AddDefaultTokenProviders()
                 .AddErrorDescriber<PersianIdentityErrorDescriber>();
             services.AddScoped<IMessageSender, MessageSender>();
+            services.AddAuthorization(x =>
+            {
+                x.AddPolicy("EmplyeeList",policy=>policy.RequireClaim(ClaimTypesStore.EmployeeList));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

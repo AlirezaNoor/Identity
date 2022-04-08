@@ -20,8 +20,9 @@ namespace identity.Controllers
         {
             _context = context;
         }
-       
+
         // GET: Enployees
+        [Authorize(Policy = "EmplyeeList")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Enploye.ToListAsync());

@@ -29,6 +29,11 @@ else
                        class="btn btn-primary">Add to role</a>
                     <a asp-controller="ManageUser" asp-action="RemoveUserFromRole" asp-route-id="@Model[i].id"
                        class="btn btn-danger">Remove From role</a>
+                    
+                    <a asp-controller="ManageUser" asp-action="AddUserToClaim" asp-route-id="@Model[i].id"
+                       class="btn btn-secondary">Addclaim</a>
+                    <a asp-controller="ManageUser" asp-action="DeletClaim" asp-route-id="@Model[i].id"
+                       class="btn btn-success">Delet claim</a>
 
                     <button type="submit" class="btn btn-danger">Delete user</button>
                 </form>
